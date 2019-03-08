@@ -1,0 +1,6 @@
+#BlueJ class context
+comment0.target=Juego
+comment0.text=\r\nEl\ metodo\ jugar\ elige\ una\ palabra\ aleatoria\ de\ una\ lista\ de\ posibles\r\npalabras\ y\ permite\ al\ usuario\ o\ bien\ ir\ indicando\ letras\ o\ bien\r\nintentar\ averiguar\ la\ palabra.\ Si\ la\ letra\ indicada\ por\ el\ usuario\ no\ esta\r\nen\ la\ palabra\ el\ jugador\ va\ perdiendo\ vida.\ Si\ si\ esta,\ se\ muestra\ la\ palabra\r\ncon\ las\ letras\ que\ el\ usuario\ haya\ indicado.\ Si\ la\ palabra\ que\ el\ usuario\r\nintroduce\ es\ incorrecta\ pierde\ uno\ de\ vida\ y\ sigue\ el\ juego.\r\nSi\ el\ jugador\ pierde\ toda\ su\ vida\ se\ acaba\ el\ juego.\ Si\ acierta\ la\ palabra\r\nantes\ de\ que\ se\ le\ acabe\ la\ vida\ se\ le\ concede\ un\ bonus\ de\ vida\ y\ \r\nse\ vuelve\ a\ empezar\ con\ una\ nueva\ palabra.\r\n
+comment1.params=
+comment1.target=void\ jugar()
+numComments=2
