@@ -21,7 +21,7 @@ public class Juego {
         int puntuacionInicial = 100000;
         boolean acierto = false;
         boolean esCorrecto = false;
-        int intentosMax = 5;
+        int intentosMax = 6;
         int intentos = 0;
         int letrasEncontradas = 0;
         boolean repetir = true;
@@ -45,8 +45,15 @@ public class Juego {
             System.out.println("Di un numero del 1 al " + (10 - intentos) + " para seleccionar una palabra de la lista");
             int palabraAlAzar = scanner.nextInt();
 
+            // Añade la palabra seleccionada al azar a un Arraylist en forma de guiones
             String palabraAuxiliar = palabras.get(palabraAlAzar);
-            while(letrasEncontradas < palabras.get(palabraAlAzar).length()){
+            ArrayList<String> letrasPalabra = new ArrayList<String>();
+
+            for(int letras = 0; letras != palabras.get(palabraAlAzar).length();letras ++){
+                letrasPalabra.add("_");
+            }
+
+            while(intentos < intentosMax || !acierto){
                 System.out.println("Escribe una letra para ver si se encuentra en la palabra, o más de una para resolver");
                 String letra = scanner.next();
                 //comprueba si está intentando adivinar una letra o resolver 
@@ -55,11 +62,21 @@ public class Juego {
                     if(palabras.get(palabraAlAzar).contains(letra)){
                         //Sustituye los guiones por las letras que coinciden en su posición correspondiente
                         for(int contador = 0; contador < palabras.get(palabraAlAzar).length(); contador ++ ){
-                            if(letra == palabras.get(palabraAlAzar).substring(contador, contador +1)){
-
+                            if(letra.equals(palabras.get(palabraAlAzar).substring(contador, contador +1))){
+                                letrasPalabra.remove(contador);
+                                letrasPalabra.add(contador, letra);
+                                System.out.print(letrasPalabra);
                             }
                         }
+                        // Salto de linea
+                        System.out.println("");
+                        //Comprueba que las letras de la palabra no hayan sido descubiertas por completo
+                        if(!letrasPalabra.contains("_")){
+                            System.out.println("Enhorabuena! has descrifrado la palabra!");
+                            acierto = true;
+                        }
                     }
+                    // Imprime un mensaje de erro si la letra no coincide
                     else{
                         System.out.println("Esa letra no se encuentra en la palabra a descifrar");
                         intentos ++;
@@ -69,6 +86,7 @@ public class Juego {
                 else{
                     if(palabras.get(palabraAlAzar).equals(letra)){
                         System.out.println("Enhorabuena! Has acertado!");
+                        acierto = true;
                     }
                     else{
                         System.out.println("Error!");
